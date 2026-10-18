@@ -28,7 +28,9 @@ public class Filme {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Filme filme = (Filme) obj;
-        return nome.equals(filme.nome) && ano.equals(filme.ano);
+        boolean nomeEq = (nome == null ? filme.nome == null : nome.equals(filme.nome));
+        boolean anoEq = (ano == null ? filme.ano == null : ano.equals(filme.ano));
+        return nomeEq && anoEq;
     }
 
     @Override

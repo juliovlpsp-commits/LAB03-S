@@ -4,9 +4,17 @@ composes HotList
 ---
 - filmes: Filme[100]
 - hotList: HotList
+- scanner: Scanner
 ---
 + FilmNow()
 + executar(): void
+- exibirMenu(): void
+- adicionarFilme(): void
+- mostrarTodos(): void
+- detalharFilme(): void
+- exibirHotList(): void
+- atribuirHot(): void
+- removerHot(): void
 ---
 
 Filme
@@ -16,12 +24,15 @@ Filme
 - local: String
 ---
 + Filme(nome: String, ano: String, local: String)
++ getNome(): String
++ getAno(): String
++ getLocal(): String
 + equals(obj: Object): boolean
 + toString(): String
 ---
 
 HotList
-composes Filme
+aggregates Filme
 ---
 - filmes: Filme[10]
 ---
