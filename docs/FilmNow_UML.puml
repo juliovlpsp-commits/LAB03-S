@@ -1,0 +1,59 @@
+@startuml FilmNow
+left to right direction
+skinparam backgroundColor #121212
+skinparam shadowing false
+skinparam ArrowColor #BBBBBB
+skinparam ClassBackgroundColor #1E1E1E
+skinparam ClassBorderColor #3A3A3A
+skinparam ClassFontColor #E0E0E0
+skinparam ClassAttributeFontColor #E0E0E0
+skinparam ClassStereotypeFontColor #90CAF9
+skinparam ClassHeaderBackgroundColor #252525
+skinparam NoteBackgroundColor #2C2C2C
+skinparam NoteBorderColor #444444
+skinparam NoteFontColor #E0E0E0
+skinparam PackageBackgroundColor #1E1E1E
+skinparam PackageBorderColor #3A3A3A
+skinparam PackageFontColor #E0E0E0
+skinparam classAttributeIconSize 0
+
+class FilmNow {
+  - filmes : Filme[100]
+  - hotList : HotList
+  - scanner : Scanner
+  + FilmNow()
+  + executar() : void
+  - exibirMenu() : void
+  - adicionarFilme() : void
+  - mostrarTodos() : void
+  - detalharFilme() : void
+  - exibirHotList() : void
+  - atribuirHot() : void
+  - removerHot() : void
+}
+
+class Filme {
+  - nome : String
+  - ano : String
+  - local : String
+  + Filme(nome: String, ano: String, local: String)
+  + getNome() : String
+  + getAno() : String
+  + getLocal() : String
+  + equals(obj: Object) : boolean
+  + toString() : String
+}
+
+class HotList {
+  - filmes : Filme[10]
+  + HotList()
+  + adicionar(filme: Filme, posicao: int) : void
+  + remover(posicao: int) : void
+  + contem(filme: Filme) : boolean
+  + listar() : String
+}
+
+FilmNow "1" *-- "100" Filme
+FilmNow "1" *-- "1" HotList
+HotList "1" o-- "0..10" Filme
+@enduml
