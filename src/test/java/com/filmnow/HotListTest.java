@@ -42,3 +42,4 @@ public class HotListTest {
         assertEquals(1, resultado.split("Anatomia").length - 1);
     }
 }
+

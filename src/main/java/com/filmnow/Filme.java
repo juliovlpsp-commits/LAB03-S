@@ -1,4 +1,4 @@
-﻿package com.filmnow;
+package com.filmnow;
 
 public class Filme {
     private String nome;
@@ -36,4 +36,5 @@ public class Filme {
         return nome + ", " + ano;
     }
 }
+
 

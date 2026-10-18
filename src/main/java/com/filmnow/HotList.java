@@ -32,3 +32,4 @@ public class HotList {
         return sb.toString().trim();
     }
 }
+

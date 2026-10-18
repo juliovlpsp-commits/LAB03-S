@@ -1,3 +1,5 @@
+﻿bin/
+junit.jar
 target/
 *.class
 .idea/
