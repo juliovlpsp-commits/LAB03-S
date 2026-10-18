@@ -9,13 +9,10 @@ skinparam ClassFontColor #E0E0E0
 skinparam ClassAttributeFontColor #E0E0E0
 skinparam ClassStereotypeFontColor #90CAF9
 skinparam ClassHeaderBackgroundColor #252525
-skinparam NoteBackgroundColor #2C2C2C
-skinparam NoteBorderColor #444444
-skinparam NoteFontColor #E0E0E0
-skinparam PackageBackgroundColor #1E1E1E
-skinparam PackageBorderColor #3A3A3A
-skinparam PackageFontColor #E0E0E0
 skinparam classAttributeIconSize 0
+skinparam linetype ortho
+skinparam nodesep 90
+skinparam ranksep 70
 
 class FilmNow {
   - filmes : Filme[100]
@@ -32,6 +29,15 @@ class FilmNow {
   - removerHot() : void
 }
 
+class HotList {
+  - filmes : Filme[10]
+  + HotList()
+  + adicionar(filme: Filme, posicao: int) : void
+  + remover(posicao: int) : void
+  + contem(filme: Filme) : boolean
+  + listar() : String
+}
+
 class Filme {
   - nome : String
   - ano : String
@@ -44,16 +50,7 @@ class Filme {
   + toString() : String
 }
 
-class HotList {
-  - filmes : Filme[10]
-  + HotList()
-  + adicionar(filme: Filme, posicao: int) : void
-  + remover(posicao: int) : void
-  + contem(filme: Filme) : boolean
-  + listar() : String
-}
-
-FilmNow "1" *-- "100" Filme
 FilmNow "1" *-- "1" HotList
+FilmNow "1" *-- "100" Filme
 HotList "1" o-- "0..10" Filme
 @enduml
