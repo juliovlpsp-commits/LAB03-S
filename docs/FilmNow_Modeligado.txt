@@ -1,0 +1,33 @@
+﻿FilmNow
+composes Filme
+composes HotList
+---
+- filmes: Filme[100]
+- hotList: HotList
+---
++ FilmNow()
++ executar(): void
+---
+
+Filme
+---
+- nome: String
+- ano: String
+- local: String
+---
++ Filme(nome: String, ano: String, local: String)
++ equals(obj: Object): boolean
++ toString(): String
+---
+
+HotList
+composes Filme
+---
+- filmes: Filme[10]
+---
++ HotList()
++ adicionar(filme: Filme, posicao: int): void
++ remover(posicao: int): void
++ contem(filme: Filme): boolean
++ listar(): String
+---
